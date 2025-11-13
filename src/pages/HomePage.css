@@ -12,3 +12,9 @@
     gap: 1rem;
     margin-top: 2rem;
 }
+
+.homepage .notodo{
+    display: flex;
+    margin-top: 50px;
+    justify-content: center;
+}

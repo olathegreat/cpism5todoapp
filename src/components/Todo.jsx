@@ -4,7 +4,7 @@ import Modal from './Modal'
 const Todo = (props) => {
     const [modalDisplay, setModalDisplay] = useState(false);
 
-    const [todoDisplayData, setTodoDisplayData] = useState(props.todoData);
+    // const [todoDisplayData, setTodoDisplayData] = useState(props.todoData);
     
 
 
@@ -14,14 +14,15 @@ const Todo = (props) => {
     const closeModalFunction = () => {
         setModalDisplay(false);
     }
+
   return (
       <div className='Todo' >
           <div className='task'>
-              {todoDisplayData.task}
+              {props.todoData.task}
           </div>
 
           <div className='status'>
-              {todoDisplayData.status}
+              {props.todoData.status}
           </div>
 
           {/* <div className='scheduleTime'>
@@ -38,7 +39,10 @@ const Todo = (props) => {
                   <option>In Progress</option>
                     <option>Completed</option>
               </select> */}
-              <button>Delete</button>
+              <button
+                 onClick={()=>props.propsDeleteTodo(props.todoData)}
+              
+              >Delete</button>
               
               
           </div>
@@ -47,7 +51,7 @@ const Todo = (props) => {
               modalDisplay ?
                   <Modal
                   propsEditTodosArrayFunction={props.propsEditTodoFunction}
-                  modalData={todoDisplayData}
+                  modalData={props.todoData}
                       propsCloseModal={closeModalFunction}
                   />
                   
